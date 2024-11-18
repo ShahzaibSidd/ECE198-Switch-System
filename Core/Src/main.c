@@ -21,8 +21,6 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include <string.h>
-#include <stdio.h>
 
 /* USER CODE END Includes */
 
@@ -45,8 +43,6 @@
 UART_HandleTypeDef huart2;
 
 /* USER CODE BEGIN PV */
-uint16_t num=0;
-char msg[20];
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -103,17 +99,6 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-	if(HAL_GPIO_ReadPin (GPIOA, GPIO_PIN_9) == GPIO_PIN_SET){
-		num=100;
-		sprintf(msg, "Switch is on %hu \r\n", num);
-		//HAL_GPIO_WritePin(GPIOA, GPIO_PIN_8, GPIO_PIN_SET);
-	}
-	else {
-		num=0;
-		sprintf(msg, "Switch is off %hu \r\n", num);
-		//HAL_GPIO_WritePin(GPIOA, GPIO_PIN_8, GPIO_PIN_RESET);
-	}
-	HAL_UART_Transmit(&huart2, (uint8_t *)msg, strlen(msg), HAL_MAX_DELAY);
   }
   /* USER CODE END 3 */
 }
