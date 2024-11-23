@@ -106,18 +106,34 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
+
+	//check if switch is enabled
 	if(HAL_GPIO_ReadPin (GPIOC, GPIO_PIN_7) == GPIO_PIN_SET){
+		//change variables, signaling that switch is enabled
 		num=100;
 		charToTransmit[0] = 49;
+
+
 		sprintf(msg, "Switch is on %hu \r\n", num);
+
+		//turn on LED light
 		HAL_GPIO_WritePin(GPIOA, GPIO_PIN_8, GPIO_PIN_SET);
 	}
+
+	//check if switch is disabled
 	else {
+		//change variables, signaling that switch is enabled
 		num=0;
 		charToTransmit[0] = 48;
+
+
 		sprintf(msg, "Switch is off %hu \r\n", num);
+
+		//turn off LED light
 		HAL_GPIO_WritePin(GPIOA, GPIO_PIN_8, GPIO_PIN_RESET);
 	}
+
+	//Transmit signal to other STM32
 	HAL_UART_Transmit(&huart2, (uint8_t *)msg, strlen(msg), HAL_MAX_DELAY);
 	HAL_UART_Transmit(&huart1, charToTransmit, 1, 100);
   }
