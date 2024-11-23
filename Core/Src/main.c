@@ -21,8 +21,6 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include <string.h>
-#include <stdio.h>
 
 /* USER CODE END Includes */
 
@@ -46,8 +44,6 @@ UART_HandleTypeDef huart1;
 UART_HandleTypeDef huart2;
 
 /* USER CODE BEGIN PV */
-uint16_t num=0;
-char msg[20];
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
